@@ -1,13 +1,79 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "/src/assets/fonts/avenir-next-webfontkit/stylesheet.css";
+
+/*
+avenir_nextheavy, avenir_nextheavy_italic
+avenir_nextbold, avenir_nextbold_italic
+avenir_nextdemi_bold, avenir_nextdemi_bold_italic
+avenir_nextmedium, avenir_nextmedium_italic
+avenir_nextregular, avenir_nextitalic
+avenir_nextultra_light, avenir_nextultra_light_italic
+*/
+
+/* Base Styles */
+* {
+  font-family: "avenir_nextregular", Arial, sans-serif;
+}
+
+::selection {
+  background: #ebe70e;
+  color: #000;
+  /* ::selection -> WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: #ebe70e;
+  color: #000;
+  /* ::-moz-selection -> Gecko Browsers */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flex-col-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flex-col-space {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.flex-row-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.flex-row-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.flex-row-space {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
