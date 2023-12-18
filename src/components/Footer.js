@@ -1,6 +1,5 @@
 import { GitHub } from "@mui/icons-material";
-import { Box } from "@mui/material";
-import { CustomButton } from "./CustomComponents";
+import { Box, IconButton } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -15,13 +14,13 @@ export default function Footer() {
           width: "100%",
         }}
       >
-        <CustomButton
+        <IconButton
+          href="https://github.com/mathnasium-il/number-of-the-day"
           variant="outlined"
           color="quaternary"
-          startIcon={<GitHub />}
         >
-          View on GitHub
-        </CustomButton>
+          <GitHub />
+        </IconButton>
       </Box>
     </Box>
   );
