@@ -10,6 +10,7 @@ import Number from "./components/Number";
 import TopHalf from "./components/TopHalf";
 import BottomHalf from "./components/BottomHalf";
 import Footer from "./components/Footer";
+import Time from "./components/Time";
 
 const theme = createTheme({
   palette: {
@@ -43,10 +44,10 @@ const theme = createTheme({
       fontFamily: "'avenir_nextbold', 'Arial', 'sans-serif'",
     },
     h3: {
-      fontFamily: "'avenir_nextdemi_bold', 'Arial', 'sans-serif'",
+      fontFamily: "'avenir_nextbold', 'Arial', 'sans-serif'",
     },
     h4: {
-      fontFamily: "'avenir_nextbold', 'Arial', 'sans-serif'",
+      fontFamily: "'avenir_nextdemi_bold', 'Arial', 'sans-serif'",
     },
     h5: {
       fontFamily: "'avenir_nextdemi_bold', 'Arial', 'sans-serif'",
@@ -58,6 +59,9 @@ const theme = createTheme({
       fontFamily: "'avenir_nextdemi_bold', 'Arial', 'sans-serif'",
     },
     caption: {
+      fontFamily: "'avenir_nextregular', 'Arial', 'sans-serif'",
+    },
+    h5Regular: {
       fontFamily: "'avenir_nextregular', 'Arial', 'sans-serif'",
     },
   },
@@ -91,9 +95,10 @@ function App() {
       <Box className={`App ${classes.root}`}>
         <Box className={classes.pageContainer}>
           <Box className={classes.pageContent}>
+            <Time />
             <Number />
             <TopHalf />
-            <Divider />
+            <Divider sx={{ borderStyle: "dashed", my: 2 }} />
             <BottomHalf />
           </Box>
           <Footer />

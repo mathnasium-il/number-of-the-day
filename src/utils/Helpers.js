@@ -154,8 +154,11 @@ export function getExpandedForm(num) {
 export function getFactors(num) {
   const result = [];
   if (num <= 0) return num;
-  for (let i = 1; i < Math.floor(Math.sqrt(num)); i++) {
-    if (num % i === 0) result.push(i, num / i);
+  for (let i = 1; i <= Math.floor(Math.sqrt(num)); i++) {
+    if (num % i === 0) {
+      const factors = i === num / i ? [i] : [i, num / i];
+      result.push(...factors); // Ensures perfect squares are only added to the array once.
+    }
   }
   return result.sort((a, b) => a - b).join(", ");
 }

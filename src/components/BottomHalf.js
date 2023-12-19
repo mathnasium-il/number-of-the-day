@@ -1,44 +1,75 @@
 import { Box, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getFactors, getPrimeFactorization } from "../utils/Helpers";
+import { makeStyles } from "tss-react/mui";
+
+const useStyles = makeStyles()((theme) => {
+  return {
+    answer: {
+      fontFamily: "avenir_nextregular",
+    },
+  };
+});
 
 export default function BottomHalf() {
+  const { classes } = useStyles();
   const number = useSelector((state) => state.number.number);
   return (
-    <Box>
+    <Box className="flex-col" gap={2}>
       {/* Squared & Square Root Between */}
       <Box className="flex-row-space">
-        <Typography>Squared {Math.pow(number, 2)}</Typography>
-        <Typography>
+        {/* Squared */}
+        <Box className="flex-row-start">
+          <Typography variant="h5">Squared:</Typography>
+          <Typography variant="h5" className={classes.answer}>
+            {Math.pow(number, 2)}
+          </Typography>
+        </Box>
+
+        {/* Squared Root Between */}
+        <Typography variant="h5" className={classes.answer}>
           √{number} is{" "}
           {Math.floor(Math.sqrt(number)) === Math.ceil(Math.sqrt(number))
-            ? number
+            ? Math.sqrt(number)
             : `between ${Math.floor(Math.sqrt(number))} and ${Math.ceil(
                 Math.sqrt(number)
               )}`}
+          .
         </Typography>
       </Box>
 
       {/* Factors */}
-      <Typography>Factors: {getFactors(number)}</Typography>
+      <Box className="flex-row-start">
+        <Typography variant="h5">Factors:</Typography>
+        <Typography variant="h5" className={classes.answer}>
+          {getFactors(number)}
+        </Typography>
+      </Box>
 
       {/* Multiples */}
-      <Typography>
-        Multiples: {number}, {number * 2}, {number * 3}, {number * 4},{" "}
-        {number * 5}
-      </Typography>
+      <Box className="flex-row-start">
+        <Typography variant="h5">Multiples:</Typography>
+        <Typography variant="h5" className={classes.answer}>
+          {number}, {number * 2}, {number * 3}, {number * 4}, {number * 5}
+        </Typography>
+      </Box>
 
       {/* Prime Factorization */}
-      <Typography component="div">
-        Prime Factorization:{" "}
+      <Box className="flex-row-start" alignItems="baseline">
+        <Typography variant="h5">Prime Factorization:</Typography>
         {getPrimeFactorization(number).map((el, i) => (
-          <Typography key={i} display="inline-block">
+          <Typography
+            variant="h5"
+            className={classes.answer}
+            key={i}
+            display="inline-block"
+          >
             {el[0]}
             {el[1] > 1 && <sup>{el[1]}</sup>}
             {i !== getPrimeFactorization(number).length - 1 && "×"}
           </Typography>
         ))}
-      </Typography>
+      </Box>
     </Box>
   );
 }
