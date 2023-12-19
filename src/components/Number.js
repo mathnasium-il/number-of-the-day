@@ -10,7 +10,7 @@ const useStyles = makeStyles()(() => {
       width: 200,
     },
     resize: {
-      fontSize: 48,
+      fontSize: 36,
     },
   };
 });
